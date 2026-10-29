@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EsToDoList</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-blue-300 text-white">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-center">
+       <img src="docs/icone.png" alt="icone" class="w-25 h-20 p-2.5 object-cover rounded-lg">
+       <h1 class="md:text-4xl text-2xl font-semibold">EsToDoList</h1>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
+
+    <!-- Coluna 1: Pesquisa, Filtros e Lista de Tarefas -->
+    <section class="min-w-0 lg:col-span-2 space-y-4">
+      
+      <!-- Input de Pesquisa -->
+      <input type="search" placeholder="Pesquisar tarefa..." class="focus:ring-2 focus:ring-blue-400 focus:border-indigo-500 focus:outline-none w-full border rounded-lg px-3 py-3 bg-white">
+
+      <!-- Filtros -->
+      <div class="flex gap-2 overflow-x-auto">
+        <button class="px-4 py-3 rounded-full bg-blue-300 text-white whitespace-nowrap">Todas</button>
+        <button class="px-4 py-3 rounded-full bg-slate-200 whitespace-nowrap">Pendentes</button>
+        <button class="px-4 py-3 rounded-full bg-slate-200 whitespace-nowrap">Concluídas</button>
+      </div>
+
+      <!-- Lista -->
+      <ul class="space-y-3">
+        <li class="bg-gray-300 rounded-xl shadow p-4 flex flex-col md:flex-row md:justify-between gap-3">
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 w-5 h-5">
+            <span>
+              <span class="text-gray-500 block font-medium line-through decoration-gray-500">Trabalho de História</span>
+              <span class="text-sm text-slate-500">20/10/2026</span>
+            </span>
+          </label>
+          <div class="flex gap-2">
+            <button class="flex-1 px-4 py-3 rounded-lg bg-amber-100">Editar</button>
+            <button class="flex-1 px-4 py-3 rounded-lg bg-red-600 text-red-200">Excluir</button>
+          </div>
+        </li>
+
+        <li class="bg-white rounded-xl shadow p-4 flex flex-col md:flex-row md:justify-between gap-3">
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 w-5 h-5">
+            <span>
+              <span class="block font-medium">Estudar para a prova de Matemática</span>
+              <span class="text-sm text-slate-500">22/10/2026</span>
+            </span>
+          </label>
+          <div class="flex gap-2">
+            <button class="flex-1 px-4 py-3 rounded-lg bg-amber-100">Editar</button>
+            <button class="flex-1 px-4 py-3 rounded-lg bg-red-600 text-red-200">Excluir</button>
+          </div>
+        </li>
+
+        <li class="bg-white rounded-xl shadow p-4 flex flex-col md:flex-row md:justify-between gap-3">
+          <label class="flex items-start gap-3">
+            <input type="checkbox" checked class="mt-1 w-5 h-5">
+            <span>
+              <span class="block font-medium">Entregar projeto no GitHub</span>
+              <span class="text-sm text-slate-500">08/10/2026</span>
+            </span>
+          </label>
+          <div class="flex gap-2">
+            <button class="flex-1 px-4 py-3 rounded-lg bg-amber-100">Editar</button>
+            <button class="flex-1 px-4 py-3 rounded-lg bg-red-600 text-red-200">Excluir</button>
+          </div>
+        </li>
+      </ul>
+
+      <p class="mt-4 text-sm text-slate-500">2 tarefas pendentes</p>
+    </section>
+
+    <!-- Coluna 2: Formulário de Cadastro -->
+    <section class="min-w-0 bg-white rounded-xl shadow p-4 space-y-4 lg:sticky lg:top-6 lg:self-start">
+      <div class="bg-blue-300 text-center font-bold text-white py-2 rounded-lg">CADASTRAR TAREFA</div>
+      
+      <form class="flex flex-col gap-3">
+        <input type="text" placeholder="Nova tarefa" class="focus:ring-2 focus:ring-blue-400 focus:border-indigo-500 focus:outline-none border rounded-lg px-3 py-3">
+        <input type="text" placeholder="Descrição" class="focus:ring-2 focus:ring-blue-400 focus:border-indigo-500 focus:outline-none border rounded-lg px-3 py-3">
+        <input type="text" placeholder="Categoria" class="focus:ring-2 focus:ring-blue-400 focus:border-indigo-500 focus:outline-none border rounded-lg px-3 py-3">
+        <input type="date" class="focus:ring-2 focus:ring-blue-400 focus:border-indigo-500 focus:outline-none border rounded-lg px-3 py-3">
+
+        <!-- Status (Toggle / Switch) -->
+        <div class="flex flex-col pt-2">
+          <label class="text-lg font-semibold text-gray-700 mb-1">Status:</label>
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-700">Pendente</span>
+            
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" value="" class="sr-only peer">
+              <div class="w-14 h-8 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600 border-2 border-gray-800"></div>
+            </label>
+            
+            <span class="text-sm text-gray-600">Concluída</span>
+          </div>
+        </div>
+
+        <!-- Prioridade -->
+        <div class="flex flex-col pt-2">
+          <label class="text-lg font-semibold text-gray-700 mb-2">Prioridade:</label>
+          <div class="flex items-center gap-6 text-base">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="prioridade" class="w-4 h-4 text-blue-600 border-gray-800 focus:ring-blue-500">
+              <span class="text-sm text-gray-700">Baixa</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="prioridade" class="w-4 h-4 text-blue-600 border-gray-800 focus:ring-blue-500">
+              <span class="text-sm text-gray-700">Média</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="prioridade" class="w-4 h-4 text-blue-600 border-gray-800 focus:ring-blue-500">
+              <span class="text-sm text-gray-700">Alta</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Botões Salvar e Cancelar na linha de baixo -->
+        <div class="flex flex-row gap-3 w-full pt-4">
+          <button type="submit" class="flex-1 bg-green-400 transition delay-100 duration-500 ease-in-out text-white rounded-lg px-5 py-3 font-semibold hover:bg-blue-500">SALVAR</button>
+          <button type="button" class="flex-1 bg-red-500 transition delay-100 duration-500 ease-in-out text-white rounded-lg px-5 py-3 font-semibold hover:bg-blue-500">CANCELAR</button>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+</body>
+</html>
